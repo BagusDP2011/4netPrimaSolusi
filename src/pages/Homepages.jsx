@@ -70,12 +70,12 @@ const Homepages = ({ resultData }) => {
           pelabuhanTujuan: values.pelabuhanTujuan,
         };
 
-        // const response = await axios.post(
-        //   "https://insw-dev.ilcs.co.id/n/simpan",
-        //   dataPerusahaan
-        // );
+        await axios.post(
+          "https://insw-dev.ilcs.co.id/n/simpan",
+          dataPerusahaan
+        );
+
         setResults(dataPerusahaan);
-        console.log(results);
 
         toast({
           title: "Menyimpan data sukses",
