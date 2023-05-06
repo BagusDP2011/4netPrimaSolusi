@@ -70,11 +70,12 @@ const Homepages = ({ resultData }) => {
           pelabuhanTujuan: values.pelabuhanTujuan,
         };
 
-        await axios.post(
-          "https://insw-dev.ilcs.co.id/n/simpan",
-          dataPerusahaan
-        );
-
+        // await axios.post(
+        //   "https://insw-dev.ilcs.co.id/n/simpan",
+        //   dataPerusahaan
+        // );
+        console.log("Karena post ke url simpan di limited maka saya console disini: ")
+        console.log(dataPerusahaan)
         setResults(dataPerusahaan);
 
         toast({

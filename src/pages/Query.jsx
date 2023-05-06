@@ -36,24 +36,26 @@ const Barang = ({ resultData }) => {
 
   const formikBarang = useFormik({
     initialValues: {
-      hsCode: "",
       jumlahBarang: "",
       hargaBarang: "",
     },
     onSubmit: async (values) => {
       try {
         const dataBarang = {
-          hsCode: values.hsCode,
           jumlahBarang: values.jumlahBarang,
           hargaBarang: values.hargaBarang,
         };
 
-        const response = await axios.post(
-          "https://insw-dev.ilcs.co.id/n/simpan",
-          dataBarang
-        );
+        // const response = await axios.post(
+        //   "https://insw-dev.ilcs.co.id/n/simpan",
+        //   dataBarang
+        // );
 
-        setResultsBarang(response);
+        console.log(
+          "Karena post ke url simpan di limited maka saya console disini: "
+        );
+        console.log(dataBarang);
+        setResultsBarang(dataBarang);
         toast({
           title: "Menyimpan data sukses",
           status: "success",
@@ -128,9 +130,11 @@ const Barang = ({ resultData }) => {
                   />
                   <Input
                     type="text"
+                    name="jumlahBarang"
                     placeholder="Input disini"
                     marginBottom={"10px"}
                     maxWidth={"80%"}
+                    onChange={formChangeHandler}
                   />
                   <Input
                     type="text"
@@ -178,10 +182,12 @@ const Barang = ({ resultData }) => {
                   />
                   <Input
                     type="text"
+                    name="hargaBarang"
                     placeholder="Isi disini"
                     marginBottom={"10px"}
                     marginLeft={"20%"}
                     maxWidth={"80%"}
+                    onChange={formChangeHandler}
                   />
                   <Input
                     type="text"
